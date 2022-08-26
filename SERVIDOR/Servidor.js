@@ -14,7 +14,8 @@ import { conectar } from '../database/conexion.js'
 export class Servidor{
     constructor(){
       this.app=express()//atributo una variable
-      this.atenderpeticiones()//atiendo peticiones 
+      this.habilitarBody()
+      this.conectarconBd() 
       this.atenderpeticiones()//atiendo las peticiones del usuario
     }
 
