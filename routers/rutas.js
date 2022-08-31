@@ -21,8 +21,8 @@ rutas.post ('/viajescomfama/v1/habitacion',controladorHabitacion.agregarHabitaci
 rutas.put ('/viajescomfama/v1/habitacion/:id',controladorHabitacion.editarHabitacion)
 
 
-//ENDPOITS PARA LOS SERVICIOS ASOCIADOS  A LAS RESERVAS
-/*
+//ENDPOINTS PARA LOS SERVICIOS ASOCIADOS  A LAS RESERVAS
+
 rutas.get('viajescomfama/v1/reserva', function (req, res) { //RUTA O ENDPOINTS PARA BUSCAR TODAS LAS RESERVA
   res.send('Hello World')
 })
@@ -39,27 +39,21 @@ rutas.put('viajescomfama/v1/reserva/:id', function (req, res) {
   })
   rutas.delete('viajescomfama/v1/cancelacion/:id', function (req, res) {
     res.send('Hello World')
-  }
-
-  )*/
-
-/*
+  })
 
   //function (req, res) { //RUTA O ENDPOINTS PARA BUSCAR TODAS LAS HABITACIONES 
    // res.send('Hello World')
-  }
+  
+ //function (req, res) { //RUTA O ENDPOINTS PARA BUSCAR TODAS LAS HABITACION
+   // res.send('Hello World')
+  //}
 
+ // function (req, res) { //RUTA O ENDPOINTS PARA AGREGAR TODAS LAS HABITACION
+  //  res.send('Hello World')
+ // }
 
-  function (req, res) { //RUTA O ENDPOINTS PARA BUSCAR TODAS LAS HABITACION
-    res.send('Hello World')
-  }
+ // function (req, res) { //RUTA O ENDPOINTS PARA CAMBIAR TODAS LAS HABITACION
+   // res.send('Hello World')
+ // }
 
-  function (req, res) { //RUTA O ENDPOINTS PARA AGREGAR TODAS LAS HABITACION
-    res.send('Hello World')
-  }
-
-  function (req, res) { //RUTA O ENDPOINTS PARA CAMBIAR TODAS LAS HABITACION
-    res.send('Hello World')
-  }
-
-  */
+  //*
