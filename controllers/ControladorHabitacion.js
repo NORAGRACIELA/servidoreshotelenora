@@ -5,7 +5,7 @@ export class  ControladorHabitacion{
     constructor(){}
 
     //buscar habitaciones
-    buscarHabitaciones(request,response){
+    async buscarHabitaciones(request,response){
 
         //llamo al servicio
         let servicioHabitacion=new ServicioHabitacion()
@@ -15,7 +15,7 @@ export class  ControladorHabitacion{
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta",
-                datos:servicioHabitacion.buscarTodas()
+                datos:await servicioHabitacion.buscarTodas()
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
             response(400).json({
@@ -26,7 +26,7 @@ export class  ControladorHabitacion{
     }
 
     //buscar habitaciones por id
-    buscarHabitacionPorId(request,response){
+    async buscarHabitacionPorId(request,response){
         let identificador=request.params.id
 
         //llamo al servicio
@@ -36,7 +36,7 @@ export class  ControladorHabitacion{
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta"+identificador,
-                datos:servicioHabitacion.buscarPorId(identificador)
+                datos:await servicioHabitacion.buscarPorId(identificador)
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
             response(400).json({
@@ -47,7 +47,7 @@ export class  ControladorHabitacion{
     }
 
     //agregar habitaciones
-    agregarHabitacion(request,response){
+    async agregarHabitacion(request,response){
         let cuerpo=request.body
 
         //llamo al servicio
@@ -55,7 +55,7 @@ export class  ControladorHabitacion{
 
         //console.log(cuerpo)
         try{
-            servicioHabitacion.agregar(cuerpo)
+            await servicioHabitacion.agregar(cuerpo)
             response.status(200).json({
                 mensaje:"exito agregando la habitacion",
                 datos:null
@@ -69,7 +69,7 @@ export class  ControladorHabitacion{
     }
 
     //editar habitaciones
-    editarHabitacion(request,response){
+    async editarHabitacion(request,response){
         //recibir id como parametro 
         let id=request.params.id
 
@@ -81,7 +81,7 @@ export class  ControladorHabitacion{
         let servicioHabitacion=new ServicioHabitacion()
 
         try{
-            servicioHabitacion.actualizar(id,datos)
+            await servicioHabitacion.actualizar(id,datos)
             response.status(200).json({
                 mensaje:"exito editando la habitacion"+ id,
                 datos:null
