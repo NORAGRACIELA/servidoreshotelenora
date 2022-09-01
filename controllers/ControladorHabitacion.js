@@ -58,10 +58,10 @@ export class  ControladorHabitacion{
             await servicioHabitacion.agregar(cuerpo)
             response.status(200).json({
                 mensaje:"exito agregando la habitacion",
-                datos:null
+                datos:cuerpo
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
-            response(400).json({
+            response.status(400).json({
                 mensaje:"FALLO  en la consulta" + error,
                 datos:null
             })
