@@ -5,7 +5,7 @@ export class  ControladorReserva{
     constructor(){}
 
     //buscar reserva
-    buscarReserva(request,response){
+    async buscarReserva(request,response){
 
         //llamo al servicio
         let servicioReserva=new ServicioReserva()
@@ -15,7 +15,7 @@ export class  ControladorReserva{
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta",
-                datos:servicioReserva.buscarTodas()
+                datos:await servicioReserva.buscarTodas()
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
             response(400).json({
@@ -26,7 +26,7 @@ export class  ControladorReserva{
     }
 
     //buscar Reserva por id
-    buscarReservaPorId(request,response){
+    async buscarReservaPorId(request,response){
         let identificador=request.params.id
 
         //llamo al servicio
@@ -36,10 +36,10 @@ export class  ControladorReserva{
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta"+identificador,
-                datos:servicioHabitacion.buscarPorId(identificador)
+                datos:await servicioReserva.buscarPorId(identificador)
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
-            response(400).json({
+            response.status(400).json({
                 mensaje:"FALLO  en la consulta" + error,
                 datos:null
             })
@@ -88,7 +88,7 @@ export class  ControladorReserva{
                 datos:null
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
-            response(400).json({
+            response.status(400).json({
                 mensaje:"FALLO  en la consulta" + error,
                 datos:datos
             })
@@ -97,7 +97,9 @@ export class  ControladorReserva{
 
     //eliminar Reserva
     async eliminarReserva(request,response){
+        let servicioReserva=new ServicioReserva()
         try{
+            await servicioReserva.
             response.status(200).json({
                 mensaje:"exito en la consulta",
                 datos:null
