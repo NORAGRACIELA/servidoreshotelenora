@@ -33,4 +33,4 @@ const Reserva=new Schema({
     },
 })
 
-const modeloReserva=mongoose.model('reserva',Reserva)
+export const modeloReserva=mongoose.model('reserva',Reserva)

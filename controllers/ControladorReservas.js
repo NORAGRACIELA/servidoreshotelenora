@@ -47,17 +47,18 @@ export class  ControladorReserva{
     }
 
     //agregar reserva
-    agregarReserva(request,response){
+    async agregarReserva(request,response){
         let cuerpo=request.body
+        console.log(cuerpo)
 
         //llamo al servicio
         let servicioReserva=new ServicioReserva()
 
         //console.log(cuerpo)
         try{
-            servicioReserva.agregar(cuerpo)
+            await servicioReserva.agregar(cuerpo)
             response.status(200).json({
-                mensaje:"exito agregando la habitacion",
+                mensaje:"exito agregando la reserva",
                 datos:null
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
@@ -69,7 +70,7 @@ export class  ControladorReserva{
     }
 
     //editar reserva
-    editarHabitacion(request,response){
+    async editarHabitacion(request,response){
         //recibir id como parametro 
         let id=request.params.id
 
@@ -81,9 +82,9 @@ export class  ControladorReserva{
         let servicioReserva=new ServicioReserva()
 
         try{
-            servicioReserva.actualizar(id,datos)
+            await servicioReserva.actualizar(id,datos)
             response.status(200).json({
-                mensaje:"exito editando la habitacion"+ id,
+                mensaje:"exito editando la reserva"+ id,
                 datos:null
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
@@ -95,11 +96,11 @@ export class  ControladorReserva{
     }
 
     //eliminar Reserva
-    eliminarReserva(request,response){
+    async eliminarReserva(request,response){
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta",
-                datos:["reserv1","200USD","TV POR CABLE"]
+                datos:null
             })
         }catch(error){//FALLO RESOLVIENDO LA PETICION
             response(400).json({
